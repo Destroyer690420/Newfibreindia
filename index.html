@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Fibre India</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #181818; /* fallback background */
+        }
+        section {
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 80px); /* adjust 80px to your navbar height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 2rem;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 2;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(5px);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 20%;
+            animation-delay: -2s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+
+        .floating-circle:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            bottom: 20%;
+            right: 25%;
+            animation-delay: -6s;
+        }
+
+        .floating-circle:nth-child(5) {
+            width: 220px;
+            height: 220px;
+            top: 50%;
+            left: 50%;
+            animation-delay: -8s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .hero-text-container {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .hero-title-line {
+            display: block;
+        }
+
+        .hero-title-line.highlight {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .hero-cta {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-cta.primary {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-cta.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .hero-cta .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 1.25rem;
+        }
+
+        .feature-text {
+            color: white;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-cta-container {
+                flex-direction: column;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-item {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.5rem 0;
+            background: rgba(26, 26, 26, 0.2);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar.scrolled {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            padding: 1rem 0;
+        }
+
+        .navbar .logo {
+            margin-left: 100px;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ffffff, rgba(255, 255, 255, 0.9));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .logo:hover {
+            transform: translateY(-1px);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin-right: 100px;
+            padding: 0;
+            align-items: center;
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .navbar .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                rgba(76, 175, 80, 0) 0%,
+                rgba(76, 175, 80, 0.8) 50%,
+                rgba(76, 175, 80, 0) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .navbar .nav-link:hover::before,
+        .navbar .nav-link.active::before {
+            transform: scaleX(1);
+        }
+
+        .navbar .nav-link.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .navbar {
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .navbar .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(26, 26, 26, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                border-left: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .navbar .nav-links.active {
+                right: 0;
+                display: flex;
+            }
+
+            .navbar .nav-link {
+                font-size: 1.25rem;
+                padding: 0.75rem 0;
+            }
+
+            .navbar .logo {
+                margin-left: 0;
+                margin-right: 0;
+                flex: 1;
+                text-align: center;
+                display: block;
+            }
+
+            .navbar {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
+
+            .navbar .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        .categories {
+            margin: 0;
+            padding-top: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .categories::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .categories-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .categories-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .categories-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+            justify-content: center;
+        }
+
+        .category-card {
+            max-width: 340px;
+            width: 100%;
+            margin: 0 auto;
+            opacity: 1;
+            transform: scale(1);
+            transition: 
+                opacity 0.4s cubic-bezier(.4,0,.2,1),
+                transform 0.4s cubic-bezier(.4,0,.2,1),
+                margin 0.4s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform, margin;
+            border-radius: 22px;
+            overflow: hidden;
+            background: rgba(40,40,40,0.7);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(76,175,80,0.08);
+            border: 1.5px solid rgba(76,175,80,0.12);
+            min-height: 240px;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            background: none;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.025);
+            box-shadow: 0 16px 48px rgba(76,175,80,0.18), 0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 240px;
+            background: #222;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(.4,0,.2,1), filter 0.5s;
+            filter: brightness(0.97) saturate(1.1);
+            border-radius: 22px;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.07) rotate(-1deg);
+            filter: brightness(1.05) saturate(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .category-image, .category-card { height: 200px; min-height: 180px; }
+        }
+        @media (max-width: 600px) {
+            .category-image, .category-card { height: 200px; min-height: 120px; }
+        }
+
+        .catalogs {
+            padding: 7rem 2rem 7rem 2rem;
+            background: linear-gradient(135deg, #181c1a 0%, #232526 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalogs-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .catalogs-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #b6e7c9 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .catalogs-subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .catalogs-grid {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .catalog-card {
+            width: 312px;
+            height: 520px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(76,175,80,0.08);
+            background: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        .catalog-image {
+            width: 100%;
+            height: 100%;
+            background: #222;
+            overflow: hidden;
+            border-radius: 22px;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+        }
+
+        .catalog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 22px;
+            transition: transform 0.5s cubic-bezier(.4,0,.2,1), filter 0.5s;
+            filter: brightness(0.97) saturate(1.1);
+        }
+
+        .catalog-card:hover .catalog-image img {
+            transform: scale(1.07) rotate(-1deg);
+            filter: brightness(1.05) saturate(1.2);
+        }
+
+        .catalog-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 0.7rem;
+        }
+
+        .catalog-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            padding: 0.7em 1.5em;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.13);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            border: none;
+            outline: none;
+        }
+
+        .catalog-btn .icon {
+            font-size: 1.2em;
+        }
+
+        .catalog-btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            box-shadow: 0 4px 16px rgba(76,175,80,0.18);
+            transform: translateY(-2px) scale(1.04);
+            color: #fff;
+        }
+
+        .catalog-btn.secondary {
+            background: rgba(255,255,255,0.13);
+            color: #4CAF50;
+            border: 1.5px solid #4CAF50;
+            box-shadow: none;
+        }
+
+        .catalog-btn.secondary:hover {
+            background: #4CAF50;
+            color: #fff;
+            border-color: #4CAF50;
+        }
+
+        /* Planter Catalog Buttons (first card) */
+        .catalog-card:first-child .catalog-btn {
+            background: #8B7E74;
+            color: #fff;
+            border: none;
+        }
+        .catalog-card:first-child .catalog-btn.secondary {
+            background: #D6D1CA;
+            color: #8B7E74;
+            border: 1.5px solid #8B7E74;
+        }
+        .catalog-card:first-child .catalog-btn:hover,
+        .catalog-card:first-child .catalog-btn.secondary:hover {
+            background: #6E655E;
+            color: #fff;
+            border-color: #6E655E;
+        }
+
+        /* Finishes Catalog Buttons (second card) */
+        .catalog-card:nth-child(2) .catalog-btn {
+            background: #E5E5E3;
+            color: #222;
+            border: none;
+        }
+        .catalog-card:nth-child(2) .catalog-btn.secondary {
+            background: #BDBDBD;
+            color: #222;
+            border: 1.5px solid #BDBDBD;
+        }
+        .catalog-card:nth-child(2) .catalog-btn:hover,
+        .catalog-card:nth-child(2) .catalog-btn.secondary:hover {
+            background: #A0A0A0;
+            color: #222;
+            border-color: #A0A0A0;
+        }
+
+        @media (max-width: 900px) {
+            .catalogs-title { font-size: 2.2rem; }
+            .catalog-card { width: 95vw; height: 60vw; max-width: 312px; max-height: 442px; }
+            .catalog-image { height: 100%; }
+        }
+
+        @media (max-width: 600px) {
+            .catalogs { padding: 3rem 0.5rem; }
+            .catalogs-header { margin-bottom: 2rem; }
+            .catalogs-title { font-size: 1.5rem; }
+            .catalogs-grid { gap: 1.2rem; }
+            .catalog-card { width: 100%; height: 100vw; max-width: 312px; max-height: 442px; }
+            .catalog-image { height: 100%; }
+        }
+
+        .about {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .about-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .about-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .text-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .text-block-icon {
+            font-size: 2rem;
+        }
+
+        .about-text-block {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-text-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .about-subtitle {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .about-text {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stats-header h3 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .stat-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s ease;
+        }
+
+        .stat-card:hover .stat-progress {
+            transform: scaleX(1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4CAF50;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h4 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+
+        @media (max-width: 1200px) {
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .about-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 4rem 1.5rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text-block {
+                padding: 2rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .contact {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .contact-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card-header {
+            padding: 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+        }
+
+        .contact-card-header h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .contact-card-content {
+            padding: 1.5rem;
+        }
+
+        .contact-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 1.5rem 0;
+        }
+
+        .contact-method h4,
+        .contact-hours h4 {
+            color: #4CAF50;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #4CAF50;
+        }
+
+        .address {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(76, 175, 80, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #181818 0%, #232526 100%);
+            color: #fff;
+            padding: 0 2rem 1.5rem;
+            font-size: 0.95rem;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            color: #232526;
+            transform: rotate(180deg);
+        }
+
+        .footer-wave svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            padding-top: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(45deg, #4CAF50, #fff 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .footer-badge {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .footer-tagline {
+            color: rgba(255,255,255,0.7);
+                font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social .social-icon {
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .footer-social .social-icon:hover {
+            color: #fff;
+            background: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter {
+            margin-top: 1rem;
+        }
+
+        .footer-newsletter h4 {
+            color: #4CAF50;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: #4CAF50;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            }
+
+            .footer-links {
+            display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+        .footer-section h4 {
+            color: #4CAF50;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            }
+
+            .footer-section ul li a:hover {
+            color: #4CAF50;
+            transform: translateX(5px);
+            }
+
+            .contact-info li {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-info li svg {
+            color: #4CAF50;
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+                margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #4CAF50;
+        }
+
+        .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .made-in-india {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .made-in-india svg {
+            margin: 0 0.25rem;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-brand {
+                text-align: center;
+                align-items: center;
+            }
+
+            .footer-logo-wrapper {
+                justify-content: center;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-form {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 0 1.5rem 1rem;
+                margin-top: 2rem;
+            }
+
+            .footer-wave {
+                top: -50px;
+                height: 50px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* Default: 3 columns */
+        .contact-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+        }
+
+        /* Tablet: 2 columns */
+        @media (max-width: 992px) {
+          .contact-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .contact-card:last-child {
+            grid-column: span 2;
+          }
+        }
+
+        /* Mobile: 1 column */
+        @media (max-width: 768px) {
+          .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+          }
+          .contact-card {
+            min-width: 0;
+          }
+          .contact-card:last-child {
+            grid-column: span 1;
+          }
+        }
+
+        /* Default styles for catalog images */
+        .catalog-img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            aspect-ratio: 4/3; /* or whatever ratio fits your images best */
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            background: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Responsive styles for mobile */
+        @media (max-width: 600px) {
+            .catalog-img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                aspect-ratio: 4/3; /* Ensures the full image is visible */
+                object-fit: contain; /* Show the whole image */
+            }
+            .catalog-card {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">New Fibre India</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#products" class="nav-link">Products</a></li>
+            <li><a href="#catalogs" class="nav-link">Catalogs</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+        <div class="floating-elements">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+                <div class="floating-circle"></div>
+                <div class="floating-circle"></div>
+            </div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text-container">
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Elevate Your</span>
+                    <span class="hero-title-line highlight">Living Space</span>
+                </h1>
+                <p class="hero-subtitle">Discover our collection of premium planters, crafted with precision and designed for modern living</p>
+                <div class="hero-cta-container">
+                    <a href="#products" class="hero-cta primary">
+                Explore Collection
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#catalogs" class="hero-cta secondary">
+                        View Catalogs
+                        <span class="arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+                
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="products" class="categories">
+        <div class="categories-container">
+            <div class="categories-header fade-in">
+            <h2 class="section-title">Our Collections</h2>
+            <p class="section-subtitle">Discover the perfect planter for every space and style</p>
+                <div class="categories-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="round">Round</button>
+                    <button class="filter-btn" data-filter="square">Square</button>
+                    <button class="filter-btn" data-filter="rectangle">Rectangle</button>
+                    <button class="filter-btn" data-filter="custom">Custom</button>
+                </div>
+        </div>
+
+        <div class="category-grid">
+                <a href="#catalogs" class="category-card fade-in" data-category="round">
+                <div class="category-image">
+                    <img src="/images/round.jpg" alt="Round Planters" />
+                </div>
+            </a>
+
+                <a href="#catalogs" class="category-card fade-in" data-category="square">
+                <div class="category-image">
+                    <img src="/images/square.jpg" alt="Square Planters" />
+                </div>
+            </a>
+
+                <a href="#catalogs" class="category-card fade-in" data-category="rectangle">
+                <div class="category-image">
+                    <img src="/images/rectangle.jpg" alt="Rectangle Planters" />
+                </div>
+            </a>
+
+                <a href="#catalogs" class="category-card fade-in" data-category="custom">
+                <div class="category-image">
+                    <img src="/images/custom.jpg" alt="Custom Planters" />
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogs Section -->
+    <section id="catalogs" class="catalogs">
+        <div class="catalogs-header fade-in">
+            <h2 class="catalogs-title">Catalogs</h2>
+            <p class="catalogs-subtitle">Browse or download our latest product and finishes catalogs.</p>
+        </div>
+        <div class="catalogs-grid">
+            <div class="catalog-card fade-in">
+                <div class="catalog-image">
+                    <img src="/images/NEW FIBRE INDIA CATALOG.pdf.png" alt="Planter Catalog" />
+                </div>
+                <div class="catalog-actions">
+                    <a href="/images/NEW FIBRE INDIA CATALOG.pdf" target="_blank" class="catalog-btn" title="View PDF">
+                        View
+                    </a>
+                    <a href="/images/NEW FIBRE INDIA CATALOG.pdf" download class="catalog-btn secondary" title="Download PDF">
+                        Download
+                    </a>
+                </div>
+            </div>
+            <div class="catalog-card fade-in">
+                <div class="catalog-image">
+                    <img src="/images/nfi Finishes Guide 2022.pdf.png" alt="Finishes Catalog" />
+                </div>
+                <div class="catalog-actions">
+                    <a href="/images/NFI Finishes Guide 2022.pdf.pdf" target="_blank" class="catalog-btn" title="View PDF">
+                        View
+                    </a>
+                    <a href="/images/NFI Finishes Guide 2022.pdf.pdf" download class="catalog-btn secondary" title="Download PDF">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-header fade-in">
+                <span class="about-badge">Est. 2017</span>
+                <h2 class="section-title">India's Premier Fiber Planter Manufacturer</h2>
+                <p class="section-subtitle">Where Innovation Meets Craftsmanship</p>
+            </div>
+            
+            <div class="about-showcase">
+                <div class="about-image fade-in">
+                    <img src="/images/custom.jpg" alt="New Fibre India Manufacturing Facility" />
+                    <div class="image-overlay"></div>
+                </div>
+                
+                <div class="about-content fade-in">
+                    <div class="about-text-block">
+                        <div class="text-block-header">
+                            <span class="text-block-icon">🏆</span>
+                            <h3 class="about-subtitle">Excellence in Manufacturing</h3>
+                        </div>
+                        <p class="about-text">
+                            As India's leading fiber planter manufacturer, we combine traditional craftsmanship with cutting-edge technology. Our state-of-the-art facility in Haryana produces over 15000 premium planters annually, each meeting international quality standards.
+                        </p>
+                    </div>
+                    
+                    <div class="about-text-block">
+                        <div class="text-block-header">
+                            <span class="text-block-icon">🌱</span>
+                            <h3 class="about-subtitle">Sustainable Innovation</h3>
+                        </div>
+                        <p class="about-text">
+                            Our proprietary fiber technology creates planters that are not just beautiful, but also environmentally responsible. We use recycled materials and eco-friendly processes, making our products a sustainable choice for conscious consumers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-stats-container fade-in">
+                <div class="stats-header">
+                    <h3>Our Impact in Numbers</h3>
+                    <p>Delivering excellence across the globe</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏭</div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="8">0</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat-progress"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="35">0</span>
+                            <span class="stat-label">Cities Served</span>
+                        </div>
+                        <div class="stat-progress"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">✨</div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-label">Unique Designs</span>
+                        </div>
+                        <div class="stat-progress"></div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🏢</div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="5000">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-progress"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-features fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h4>Advanced Manufacturing</h4>
+                    <p>ISO-certified facility with automated production lines and quality control systems</p>
+                    <ul class="feature-list">
+                        <li>Precision molding technology</li>
+                        <li>Automated quality checks</li>
+                        <li>Custom finishing options</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Design Excellence</h4>
+                    <p>Collaborative design process with international architects and designers</p>
+                    <ul class="feature-list">
+                        <li>Custom size & shape options</li>
+                        <li>Premium finish selection</li>
+                        <li>Design consultation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h4>Sustainable Practices</h4>
+                    <p>Environmentally conscious manufacturing and materials</p>
+                    <ul class="feature-list">
+                        <li>Recycled materials</li>
+                        <li>Energy-efficient production</li>
+                        <li>Zero-waste initiatives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-header fade-in">
+                <span class="contact-badge">Let's Connect</span>
+                <h2 class="section-title">Contact New Fibre India</h2>
+                <p class="section-subtitle">We're here to help you transform your space with our premium planters.</p>
+            </div>
+            <div class="contact-grid">
+                <!-- Office Card -->
+                <div class="contact-card fade-in">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">🏢</span>
+                        <h3>Our Office</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <p class="address">Village - Bhupani, Faridabad<br>Haryana</p>
+                        <div class="contact-divider"></div>
+                        <div class="contact-hours">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Card -->
+                <div class="contact-card fade-in">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">📞</span>
+                        <h3>Contact Us</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <div class="contact-method">
+                            <h4>Sales Inquiries</h4>
+                            <a href="tel:+919555213827" class="contact-link">+91 9555213827</a>
+                            <a href="mailto:newfibreindia2@gmail.com" class="contact-link">newfibreindia2@gmail.com</a>
+                        </div>
+                        <div class="contact-divider"></div>
+                        <div class="contact-method">
+                            <h4>Support</h4>
+                            <a href="tel:+919015449688" class="contact-link">+91 9015449688</a>
+                            <a href="mailto:newfibreindia1@gmail.com" class="contact-link">newfibreindia1@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Card -->
+                <div class="contact-card fade-in">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">🌐</span>
+                        <h3>Connect With Us</h3>
+                    </div>
+                    <div class="contact-card-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px;">
+                        <p style="margin-bottom:1.5rem; color:rgba(255,255,255,0.85); font-size:1.07rem; text-align:center;">
+                            Follow us for updates, inspiration, and support.
+                        </p>
+                        <div style="display: flex; gap: 1.2rem; justify-content: center;">
+                            <a href="#" class="social-btn" title="Facebook" style="background:#1877f2; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                                <svg width="22" height="22" viewBox="0 0 32 32" fill="white">
+                                    <path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3zm-18 27h-5v-13h5v13zm-2.5-14.5c-1.6 0-2.5-1.1-2.5-2.5s.9-2.5 2.5-2.5c1.6 0 2.5 1.1 2.5 2.5s-.9 2.5-2.5 2.5zm19.5 14.5h-5v-7c0-1.7-.6-2.8-2.1-2.8-1.1 0-1.7.7-2 1.4-.1.2-.1.5-.1.8v7.6h-5v-13h5v1.8c.7-1.1 2-2.1 4-2.1 2.9 0 5 1.9 5 6.1v7.2z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" title="Instagram" style="background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                                <svg width="22" height="22" viewBox="0 0 32 32" fill="white">
+                                    <path d="M16 7.6a8.4 8.4 0 1 0 0 16.8 8.4 8.4 0 0 0 0-16.8zm0 13.8a5.4 5.4 0 1 1 0-10.8 5.4 5.4 0 0 1 0 10.8zm10.8-13.9a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.6 2c-.1-2.1-.6-3.9-2.1-5.4s-3.3-2-5.4-2.1c-2.1-.1-8.4-.1-10.5 0-2.1.1-3.9.6-5.4 2.1s-2 3.3-2.1 5.4c-.1 2.1-.1 8.4 0 10.5.1 2.1.6 3.9 2.1 5.4s3.3 2 5.4 2.1c2.1.1 8.4.1 10.5 0 2.1-.1 3.9-.6 5.4-2.1s2-3.3 2.1-5.4c.1-2.1.1-8.4 0-10.5zm-2.5 13.1c-.4 1.1-1.2 1.9-2.3 2.3-1.6.6-5.3.5-7.6.5s-6 .1-7.6-.5c-1.1-.4-1.9-1.2-2.3-2.3-.6-1.6-.5-5.3-.5-7.6s-.1-6 .5-7.6c.4-1.1 1.2-1.9 2.3-2.3 1.6-.6 5.3-.5 7.6-.5s6-.1 7.6.5c1.1.4 1.9 1.2 2.3 2.3.6 1.6.5 5.3.5 7.6s.1 6-.5 7.6z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" title="LinkedIn" style="background:#0077b5; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                                <svg width="22" height="22" viewBox="0 0 32 32" fill="white">
+                                    <path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h26c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3zm-18 27h-5v-13h5v13zm-2.5-14.5c-1.6 0-2.5-1.1-2.5-2.5s.9-2.5 2.5-2.5c1.6 0 2.5 1.1 2.5 2.5s-.9 2.5-2.5 2.5zm19.5 14.5h-5v-7c0-1.7-.6-2.8-2.1-2.8-1.1 0-1.7.7-2 1.4-.1.2-.1.5-.1.8v7.6h-5v-13h5v1.8c.7-1.1 2-2.1 4-2.1 2.9 0 5 1.9 5 6.1v7.2z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <span class="footer-logo">New Fibre India</span>
+                    <div class="footer-badge">Est. 2017</div>
+                </div>
+                <p class="footer-tagline">Crafting Premium Fiber Planters for Modern Spaces</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon" title="Facebook" aria-label="Follow us on Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="Instagram" aria-label="Follow us on Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="LinkedIn" aria-label="Follow us on LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form" onsubmit="return false;">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#catalogs">Catalogs</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Products</h4>
+                    <ul>
+                        <li><a href="#products" data-filter="round">Round Planters</a></li>
+                        <li><a href="#products" data-filter="square">Square Planters</a></li>
+                        <li><a href="#products" data-filter="rectangle">Rectangle Planters</a></li>
+                        <li><a href="#products" data-filter="custom">Custom Designs</a></li>
+                        <li><a href="#catalogs">View All Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                            </svg>
+                            <span>Village - Bhupani, Faridabad, Haryana</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <a href="mailto:newfibreindia2@gmail.com">newfibreindia2@gmail.com</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1zM19 12h2c0-4.9-4-8.9-9-8.9v2c3.9 0 7 3.1 7 6.9zm-4 0h2c0-2.8-2.2-5-5-5v2c1.7 0 3 1.3 3 3z"/>
+                            </svg>
+                            <a href="tel:+919555213827">+91 95552 13827</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div class="footer-copyright">
+                    <span>&copy; 2024 New Fibre India. All rights reserved.</span>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">•</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="made-in-india">
+                    <span>Made with</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span>in India</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for styling
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update active navigation link
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+                if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced catalog functions
+        function openCatalog(catalogType) {
+            const messages = {
+                'planters': '🌟 Opening Premium Planter Catalog\n\nThis would navigate to your comprehensive planter collection with detailed specifications, 3D views, and customization options.',
+                'finishes': '✨ Opening Materials & Finishes Catalog\n\nThis would showcase your premium materials, color options, textures, and finish samples with interactive previews.'
+            };
+            
+            alert(messages[catalogType] || 'Opening catalog...');
+            
+            // In a real implementation, you would navigate to the catalog page
+            // window.location.href = `${catalogType}-catalog.html`;
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Initialize
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease-in-out';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const categoryCards = document.querySelectorAll('.category-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+
+                    categoryCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                                card.style.margin = '0 auto';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            card.style.margin = '0 auto';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 400); // match the transition duration
+                        }
+                    });
+                });
+            });
+        });
+
+        // Add this to your existing JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate numbers in stats
+            const stats = document.querySelectorAll('.stat-number');
+            
+            const animateValue = (element, start, end, duration) => {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value + (element.dataset.count === '5000' ? '+' : '+');
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const endValue = parseInt(element.dataset.count);
+                        animateValue(element, 0, endValue, 2000);
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
+</body>
+</html>
